@@ -68,16 +68,17 @@ button:hover {
   width: 0px;
 }
 
-/* .amenities .popover {
+.amenities .popover {
   padding: 10px 0;
   margin-left: -5px;
   margin-top: 0%;
-} */
+}
 
-/* .amenities .popover ul {
+.amenities .popover ul {
   margin: 0px;
   padding: 0;
-} */
+  margin-left: 10%;
+}
 
 .locations .popover {
   margin-top: 0%;

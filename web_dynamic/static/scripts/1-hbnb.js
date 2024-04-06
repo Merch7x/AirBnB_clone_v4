@@ -1,6 +1,6 @@
 $(function () {
   $('.checkbox').on('change', function () {
-    const checkboxStatusList = [];
+    let checkboxStatusList = [];
     $('input[type="checkbox"]').each(function () {
       let checkboxId = $(this).attr('amenity_id');
       let isChecked = $(this).is(':checked');
@@ -18,7 +18,7 @@ $(function () {
         }
       }
 
-      console.log("CHeckbox status list:", checkboxStatusList);
+      console.log("Checkbox status list:", checkboxStatusList);
 
     })
   })
