@@ -1,25 +1,21 @@
 $(function () {
-  $('.checkbox').on('change', function () {
+  // Cache the selection of checkboxes
+  const $checkboxes = $('input[type="checkbox"]');
+
+  // Event handler for checkbox changes
+  $checkboxes.on('change', function () {
+    // Update checkbox status list
     let checkboxStatusList = [];
-    $('input[type="checkbox"]').each(function () {
-      let checkboxId = $(this).attr('amenity_id');
+    $checkboxes.each(function () {
+      let checkboxId = $(this).attr('data-id');
+      let checkboxName = $(this).attr('data-name');
       let isChecked = $(this).is(':checked');
-      checkboxStatusList.push({ id: checkboxId, checked: isChecked });
+      checkboxStatusList.push({ id: checkboxId, name: checkboxName, checked: isChecked });
     });
 
-    $('input[type="checkbox"]').on('change', function () {
-      let checkboxId = $(this).attr('amenity_id');
-      let isChecked = $(this).is(':checked');
-
-      for (let i = 0; i < checkboxStatusList.length; i++) {
-        if (checkboxStatusList[i].id === checkboxId) {
-          checkboxStatusList[i].checked = isChecked;
-          break;
-        }
-      }
-
-      console.log("Checkbox status list:", checkboxStatusList);
-
-    })
-  })
+    let checkedAmenities = checkboxStatusList.filter(
+      item => item.checked).map(item => item.name);
+    $('.amenities h4').text(checkedAmenities.join(', '));
+  });
 });
+
