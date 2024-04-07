@@ -5,17 +5,16 @@ $(function () {
   // Event handler for checkbox changes
   $checkboxes.on('change', function () {
     // Update checkbox status list
-    let checkboxStatusList = [];
+    const checkboxStatusList = [];
     $checkboxes.each(function () {
-      let checkboxId = $(this).attr('data-id');
-      let checkboxName = $(this).attr('data-name');
-      let isChecked = $(this).is(':checked');
+      const checkboxId = $(this).attr('data-id');
+      const checkboxName = $(this).attr('data-name');
+      const isChecked = $(this).is(':checked');
       checkboxStatusList.push({ id: checkboxId, name: checkboxName, checked: isChecked });
     });
 
-    let checkedAmenities = checkboxStatusList.filter(
+    const checkedAmenities = checkboxStatusList.filter(
       item => item.checked).map(item => item.name);
     $('.amenities h4').text(checkedAmenities.join(', '));
   });
 });
-
